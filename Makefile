@@ -6,7 +6,7 @@
 #    By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/24 19:39:58 by ashabdan          #+#    #+#              #
-#    Updated: 2019/10/10 21:57:39 by ashabdan         ###   ########.fr        #
+#    Updated: 2019/11/19 16:05:45 by ashabdan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,8 @@ SRC =	ft_memset.c \
 		ft_lstmap.c \
 		ft_lstrev.c \
 		ft_isprime.c \
-		ft_swapbits.c
+		ft_swapbits.c \
+		get_next_line.c
 
 OBJ = $(SRC:.c=.o)
 
