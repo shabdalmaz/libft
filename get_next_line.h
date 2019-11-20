@@ -6,7 +6,7 @@
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 19:15:14 by ashabdan          #+#    #+#             */
-/*   Updated: 2019/11/13 23:05:27 by ashabdan         ###   ########.fr       */
+/*   Updated: 2019/11/19 16:05:11 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # include <fcntl.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 # define BUFF_SIZE (32)
 # define FD_SIZE (8192)
