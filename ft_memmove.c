@@ -1,21 +1,21 @@
 #include <string.h>
 
-#define SUBSTR_SIZE sizeof(unsigned int)
-typedef unsigned int substr;
+#define WORD_SIZE sizeof(unsigned int)
+typedef unsigned int word;
 
 void	*ft_memmove(void *dst0, const void *src0, size_t n)
 {
-	char		*dst;
-	const char	*src;
+	unsigned char		*dst;
+	const unsigned char	*src;
 
-	dst = (char *)dst0;
-	src = (const char *)src0;
+	dst = (unsigned char *)dst0;
+	src = (const unsigned char *)src0;
 	if (dst == src || n == 0)
 		return (dst0);
-	if ((substr *)src < (substr *)dst && (substr *)src + n > (substr *)dst)
+	if ((word *)src < (word *)dst && (word *)src + n > (word *)dst)
 	{
-		while (n >= SUBSTR_SIZE && (n -= SUBSTR_SIZE))
-			*(substr *)(dst + n) = *(substr *)(src + n);
+		while (n >= WORD_SIZE && (n -= WORD_SIZE))
+			*(word *)(dst + n) = *(word *)(src + n);
 		while (n--)
 			*(dst + n) = *(src + n);
 		return (dst0);

@@ -1,25 +1,28 @@
 #include <string.h>
 
-#define	BUF_SIZE sizeof(unsigned int)
+#define	WORD_SIZE sizeof(unsigned int)
+typedef unsigned int word;
 
-void	*ft_memset(void *dst, int val, size_t num)
+void	*ft_memset(void *dst0, int c, size_t n)
 {
-	unsigned char	*d;
-	unsigned int	buf;
+	unsigned char	*dst;
+	unsigned char	val;
+	word		mask;
 	size_t		i;
 
-	d = dst;
-	buf = (unsigned int)val;
-	buf = (buf << 8) | buf;
-	buf = (buf << 16) | buf;
-	i = num / BUF_SIZE;
+	dst = (unsigned char *)dst0;
+	val = (unsigned char)c;
+	mask = (word)val;
+	mask = (mask << 8) | mask;
+	mask = (mask << 16) | mask;
+	i = n / WORD_SIZE;
 	while (i--)
 	{
-		*(unsigned int *)d = buf;
-		d += BUF_SIZE;
+		*(word *)dst = mask;
+		dst += WORD_SIZE;
 	}
-	i = num % BUF_SIZE;
+	i = n % WORD_SIZE;
 	while (i--)
-		*d++ = buf;
-	return (dst);
+		*dst++ = val;
+	return (dst0);
 }
