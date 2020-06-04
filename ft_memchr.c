@@ -5,7 +5,7 @@
 #define LST_BIT 0x80808080
 typedef unsigned int word;
 
-void	ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*c_ptr;
 	unsigned char		chr;
@@ -27,7 +27,7 @@ void	ft_memchr(const void *s, int c, size_t n)
 			c_ptr += WORD_SIZE;
 		}
 	}
-	while (n-- && *c_ptr == chr)
+	while (n-- && *c_ptr != chr)
 		c_ptr++;
 	return (n ? (void *)c_ptr : NULL);
 }
