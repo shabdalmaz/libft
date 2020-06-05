@@ -1,18 +1,22 @@
-#include <string.h>
+#include "ft_mem.h"
 
-#define WORD_SIZE sizeof(unsigned int)
 #define FST_BIT 0x01010101
 #define LST_BIT 0x80808080
-typedef unsigned int word;
+
+/*
+ * byte - unsigned char
+ * word - unsigned int
+ * WORD_SIZE - sizeof(unsigned int)
+ */
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char	*c_ptr;
-	unsigned char		chr;
-	word			mask;
+	const byte	*c_ptr;
+	byte		chr;
+	word		mask;
 
-	c_ptr = (unsigned char *)s;
-	chr = (unsigned char)c;
+	c_ptr = (const byte *)s;
+	chr = (byte)c;
 	if (n > WORD_SIZE)
 	{
 		mask = (word)chr;

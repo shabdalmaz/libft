@@ -1,17 +1,20 @@
-#include <string.h>
+#include "ft_mem.h"
 
-#define	WORD_SIZE sizeof(unsigned int)
-typedef unsigned int word;
+/*
+ * byte - unsigned char
+ * word - unsigned int
+ * WORD_SIZE - sizeof(unsigned int)
+ */
 
 void	*ft_memset(void *dst0, int c, size_t n)
 {
-	unsigned char	*dst;
-	unsigned char	val;
-	word		mask;
-	size_t		i;
+	byte	*dst;
+	byte	val;
+	word	mask;
+	size_t	i;
 
-	dst = (unsigned char *)dst0;
-	val = (unsigned char)c;
+	dst = (byte *)dst0;
+	val = (byte)c;
 	mask = (word)val;
 	mask = (mask << 8) | mask;
 	mask = (mask << 16) | mask;

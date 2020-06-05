@@ -1,6 +1,4 @@
-#include <string.h>
-
-void	*ft_memset(void *dst, int val, size_t num);
+#include "ft_mem.h"
 
 void	ft_bzero(void *s, size_t n)
 {

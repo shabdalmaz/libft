@@ -1,15 +1,18 @@
-#include <string.h>
+#include "ft_mem.h"
 
-#define WORD_SIZE sizeof(unsigned int)
-typedef unsigned int word;
+/*
+ * byte - unsigned char
+ * word - unsigned int
+ * WORD_SIZE - sizeof(unsigned int)
+ */
 
 void	*ft_memmove(void *dst0, const void *src0, size_t n)
 {
-	unsigned char		*dst;
-	const unsigned char	*src;
+	byte		*dst;
+	const byte	*src;
 
-	dst = (unsigned char *)dst0;
-	src = (const unsigned char *)src0;
+	dst = (byte *)dst0;
+	src = (const byte *)src0;
 	if (dst == src || n == 0)
 		return (dst0);
 	if ((word *)src < (word *)dst && (word *)src + n > (word *)dst)
