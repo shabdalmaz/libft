@@ -32,6 +32,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		}
 	}
 	while (n-- && *c_ptr != chr)
-		c_ptr++;
+		c_ptr += 1;
 	return (n ? (void *)c_ptr : NULL);
 }
