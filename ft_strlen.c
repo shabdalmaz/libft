@@ -1,4 +1,4 @@
-#include "ft_mem.h"
+#include "ft_str.h"
 
 #define FST_BIT 0x01010101
 #define LST_BIT 0x80808080
@@ -12,16 +12,12 @@ size_t	ft_strlen(const char *s)
 	n_ch = 0;
 	while (1)
 	{
-		if ((((*(word *)s ^ n_ch) - FST_BIT) \
-			& ~(*(word *)s ^ n_ch) & LST_BIT))
+		if ((((*(word *)(s + len) ^ n_ch) - FST_BIT) \
+			& ~(*(word *)(s + len) ^ n_ch) & LST_BIT))
 			break ;
 		len += WORD_SIZE;
-		s += WORD_SIZE;
 	}
-	while (*s)
-	{
-		s += 1;
+	while (*(s + len))
 		len += 1;
-	}
 	return (len);
 }
