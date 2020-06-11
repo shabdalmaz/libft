@@ -6,6 +6,7 @@
 typedef unsigned int	word;
 typedef unsigned char	byte;
 size_t			ft_strlen(const char *s);
-size_t			ft_strlcpy(char *dst0, const char *src0, size_t n);
+size_t			ft_strlcpy(char *dst, const char *src, size_t dst_size);
+size_t			ft_strlcat(char *dst, const char *src, size_t dst_size);
 
 #endif
