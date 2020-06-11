@@ -1,12 +1,12 @@
 #include "ft_str.h"
 
-size_t	ft_strlcpy(char *dst0, const char *src0, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 {
-	char	*dst;
-	char	*src;
+	char	*dst0;
+	char	*src0;
 
-	dst = dst0;
-	src = src0;
+	dst0 = dst;
+	src0 = src;
 	while (n)
 	{
 		if (*src && n > 1)
