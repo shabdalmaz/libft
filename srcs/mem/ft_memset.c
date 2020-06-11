@@ -1,13 +1,13 @@
 #include "ft_mem.h"
 
-void	*ft_memset(void *dst0, int c, size_t n)
+void	*ft_memset(void *dst, int c, size_t n)
 {
-	byte	*dst;
+	byte	*dst0;
 	byte	val;
 	word	mask;
 	size_t	i;
 
-	dst = (byte *)dst0;
+	dst0 = (byte *)dst;
 	val = (byte)c;
 	mask = (word)val;
 	mask = (mask << 8) | mask;

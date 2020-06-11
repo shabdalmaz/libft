@@ -1,12 +1,12 @@
 #include "ft_mem.h"
 
-void	*ft_memmove(void *dst0, const void *src0, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	byte		*dst;
-	const byte	*src;
+	byte		*dst0;
+	const byte	*src0;
 
-	dst = (byte *)dst0;
-	src = (const byte *)src0;
+	dst0 = (byte *)dst;
+	src0 = (const byte *)src;
 	if (dst == src || n == 0)
 		return (dst0);
 	if ((word *)src < (word *)dst && (word *)src + n > (word *)dst)

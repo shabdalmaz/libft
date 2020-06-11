@@ -1,16 +1,16 @@
 #include "ft_mem.h"
 
-void	*ft_memcpy(void *dst0, const void *src0, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	byte		*dst;
-	const byte	*src;
+	byte		*dst0;
+	const byte	*src0;
 	size_t		i;
 
-	if (n <= 0 || dst0 == src0)
-		return (dst0);
+	if (n <= 0 || dst == src)
+		return (dst);
 	i = n / WORD_SIZE;
-	dst = (byte *)dst0;
-	src = (const byte *)src0;
+	dst0 = (byte *)dst;
+	src0 = (const byte *)src;
 	while (i--)
 	{
 		*(word *)dst = *(word *)src;
