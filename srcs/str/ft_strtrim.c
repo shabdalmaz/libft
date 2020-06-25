@@ -14,7 +14,7 @@ char	*ft_strtrim(const char *s, const char *set)
 	while (*s && ft_strchr(set, *s))
 		s += 1;
 	s_len = ft_strlen(s);
-	while (s_len && ft_strchr(set, *(s + len - 1)))
+	while (s_len && ft_strchr(set, *(s + s_len - 1)))
 		s_len -= 1;
 	ret = ft_substr(s, 0, s_len);
 	return (ret);
