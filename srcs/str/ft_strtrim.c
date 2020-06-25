@@ -3,17 +3,17 @@
 char	*ft_strtrim(const char *s, const char *set)
 {
 	char	*ret;
-	size_t	s_len;
+	size_t	len;
 
 	if (!(s && set))
 		return (NULL);
 	ret = NULL;
-	s_len = 0;
+	len = 0;
 	while (*s && ft_strchr(set, *s))
 		s += 1;
-	s_len = ft_strlen(s);
-	while (s_len && ft_strchr(set, *(s + s_len - 1)))
-		s_len -= 1;
-	ret = ft_substr(s, 0, s_len);
+	len = ft_strlen(s);
+	while (len && ft_strchr(set, *(s + len - 1)))
+		len -= 1;
+	ret = ft_substr(s, 0, len);
 	return (ret);
 }
