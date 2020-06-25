@@ -3,13 +3,11 @@
 char	*ft_strtrim(const char *s, const char *set)
 {
 	char	*ret;
-	size_t	set_len;
 	size_t	s_len;
 
 	if (!(s && set))
 		return (NULL);
 	ret = NULL;
-	set_len = ft_strlen(set);
 	s_len = 0;
 	while (*s && ft_strchr(set, *s))
 		s += 1;
