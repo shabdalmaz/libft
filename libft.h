@@ -3,5 +3,7 @@
 
 # include "ft_mem.h"
 # include "ft_str.h"
+# include "ft_ctype.h"
+# include "ft_conv.h"
 
 #endif
