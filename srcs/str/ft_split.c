@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "ft_str.h"
+#include "ft_count.h"
 
 static void	*ft_sptclr(char **dblarr, size_t size)
 {
