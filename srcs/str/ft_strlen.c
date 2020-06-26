@@ -9,7 +9,7 @@ size_t	ft_strlen(const char *s)
 	word	n_ch;
 
 	len = 0;
-	n_ch = 0;
+	n_ch = 0x0;
 	while (1)
 	{
 		if ((((*(word *)(s + len) ^ n_ch) - FST_BIT) \
