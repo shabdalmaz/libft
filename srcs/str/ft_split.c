@@ -43,7 +43,7 @@ char		**ft_split(const char *s, char c)
 	if (!s)
 		return (NULL);
 	trmd = ft_strtrimchr(s, c);
-	words = ft_substrcnt(trmd, c);
+	words = ft_cntsubstr(trmd, c);
 	i = 0;
 	w_len = 0;
 	if (!(ret = (char **)malloc(sizeof(char *) * (words + 1))))
