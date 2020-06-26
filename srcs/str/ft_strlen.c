@@ -6,14 +6,12 @@
 size_t	ft_strlen(const char *s)
 {
 	size_t	len;
-	word	n_ch;
 
 	len = 0;
-	n_ch = 0x0;
 	while (1)
 	{
-		if ((((*(word *)(s + len) ^ n_ch) - FST_BIT) \
-			& ~(*(word *)(s + len) ^ n_ch) & LST_BIT))
+		if (((*(word *)(s + len) - FST_BIT) \
+			& ~*(word *)(s + len) & LST_BIT))
 			break ;
 		len += WORD_SIZE;
 	}
