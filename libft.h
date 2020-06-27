@@ -5,5 +5,6 @@
 # include "ft_str.h"
 # include "ft_ctype.h"
 # include "ft_conv.h"
+# include "ft_count.h"
 
 #endif

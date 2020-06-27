@@ -18,5 +18,6 @@ char			*ft_strjoin(const char *s1, const char *s2);
 char			*ft_strtrim(const char *s, const char *set);
 char			*ft_strtrimchr(const char *s, char c);
 char			**ft_split(const char *s, char c);
+char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 
 #endif
