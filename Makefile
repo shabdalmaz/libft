@@ -24,9 +24,9 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) -o $@ -c $< $(CFLAGS) -I $(INC_DIR)
 	
 clean:
-	@rm -rf $(OBJ_DIR)
+	@/bin/rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all
