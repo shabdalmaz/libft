@@ -6,5 +6,6 @@
 # include "ft_ctype.h"
 # include "ft_conv.h"
 # include "ft_count.h"
+# include "ft_io.h"
 
 #endif
