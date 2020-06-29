@@ -3,14 +3,12 @@
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	byte		*dst0;
-	const byte	*src0;
 	size_t		i;
 
 	if (n <= 0 || dst == src)
 		return (dst);
 	i = n / WORD_SIZE;
 	dst0 = (byte *)dst;
-	src0 = (const byte *)src;
 	while (i--)
 	{
 		*(word *)dst = *(word *)src;
