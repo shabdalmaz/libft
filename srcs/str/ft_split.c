@@ -15,7 +15,7 @@ static void	*ft_sptclr(char **dblarr, size_t size)
 	}
 	free(dblarr);
 	dblarr = NULL;
-	return (dblarr);
+	return (NULL);
 }
 
 static char	*ft_spttran(char *s, size_t len, char c)
@@ -57,6 +57,6 @@ char		**ft_split(const char *s, char c)
 		i += 1;
 	}
 	if (!(ret[i] = ft_strdup("\0")))
-		return (ft_spt_clr(ret, i));
+		return (ft_sptclr(ret, i));
 	return (ret);
 }
