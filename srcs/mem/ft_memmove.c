@@ -14,7 +14,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 		while (n >= WORD_SIZE && (n -= WORD_SIZE))
 			*(word *)(dst + n) = *(word *)(src + n);
 		while (n--)
-			*(dst + n) = *(src + n);
+			*(byte *)(dst + n) = *(byte *)(src + n);
 		return (dst0);
 	}
 	return (ft_memcpy(dst0, src0, n));

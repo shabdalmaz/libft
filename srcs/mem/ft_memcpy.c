@@ -20,7 +20,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	i = n % WORD_SIZE;
 	while (i--)
 	{
-		*dst = *src;
+		*(byte *)dst = *(byte *)src;
 		dst += 1;
 		src += 1;
 	}

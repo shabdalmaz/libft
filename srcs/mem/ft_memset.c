@@ -20,6 +20,6 @@ void	*ft_memset(void *dst, int c, size_t n)
 	}
 	i = n % WORD_SIZE;
 	while (i--)
-		*dst++ = val;
+		*(byte *)dst++ = val;
 	return (dst0);
 }
