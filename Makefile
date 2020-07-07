@@ -1,3 +1,16 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/07/06 15:39:20 by ashabdan          #+#    #+#              #
+#    Updated: 2020/07/06 15:39:26 by ashabdan         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SHELL := /bin/bash
 CC := gcc
 INC_DIR := ./includes/
 SRC_DIR := ./srcs/
@@ -12,7 +25,6 @@ NAME := libft.a
 
 .PHONY: all clean fclean re
 
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -24,9 +36,10 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) -o $@ -c $< $(CFLAGS) -I $(INC_DIR)
 	
 clean:
-	@/bin/rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	@rm -f $(NAME)
+	@rm -f libft.so
 
 re: fclean all

@@ -1,25 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/06 15:48:51 by ashabdan          #+#    #+#             */
+/*   Updated: 2020/07/06 17:24:28 by ashabdan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_mem.h"
 
 void	*ft_memset(void *dst, int c, size_t n)
 {
-	byte	*dst0;
-	byte	val;
-	word	mask;
+	t_byte	*dst0;
+	t_byte	val;
+	t_word	mask;
 	size_t	i;
+	size_t	word_size;
 
-	dst0 = (byte *)dst;
-	val = (byte)c;
-	mask = (word)val;
+	dst0 = (t_byte *)dst;
+	val = (t_byte)c;
+	mask = (t_word)val;
 	mask = (mask << 8) | mask;
 	mask = (mask << 16) | mask;
-	i = n / WORD_SIZE;
+	word_size = sizeof(t_word);
+	i = n / word_size;
 	while (i--)
 	{
-		*(word *)dst = mask;
-		dst += WORD_SIZE;
+		*(t_word *)dst = mask;
+		dst += word_size;
 	}
-	i = n % WORD_SIZE;
+	i = n % word_size;
 	while (i--)
-		*(byte *)dst++ = val;
+		*(t_byte *)dst++ = val;
 	return (dst0);
 }
