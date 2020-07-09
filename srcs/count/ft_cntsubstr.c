@@ -6,7 +6,7 @@
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 15:43:15 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 16:29:38 by ashabdan         ###   ########.fr       */
+/*   Updated: 2020/07/09 12:45:00 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_cntsubstr(const char *s, char delim)
 {
-	size_t	isubstrs;
+	size_t	substrs;
 	char	is_substr;
 
 	substrs = 0;

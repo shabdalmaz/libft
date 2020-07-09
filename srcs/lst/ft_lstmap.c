@@ -6,7 +6,7 @@
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 15:47:14 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 15:47:15 by ashabdan         ###   ########.fr       */
+/*   Updated: 2020/07/09 12:50:21 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*n_list;
 	t_list	*n_node;
 
-	n_list == NULL;
+	n_list = NULL;
 	if ((*f) == NULL)
 		return (NULL);
 	while (lst != NULL)
