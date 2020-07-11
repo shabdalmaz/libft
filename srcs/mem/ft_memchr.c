@@ -39,7 +39,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			c_ptr += word_size;
 		}
 	}
-	while (n-- && *c_ptr != chr)
+	while (--n && *c_ptr != chr)
 		c_ptr += 1;
 	return (n ? (void *)c_ptr : NULL);
 }

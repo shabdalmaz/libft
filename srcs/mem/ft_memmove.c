@@ -25,7 +25,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 		return (dst0);
 	if ((t_word *)src < (t_word *)dst && (t_word *)src + n > (t_word *)dst)
 	{
-		while (n >= word_size && (n -= word_size))
+		while (n > word_size && (n -= word_size))
 			*(t_word *)(dst + n) = *(t_word *)(src + n);
 		while (n--)
 			*(t_byte *)(dst + n) = *(t_byte *)(src + n);

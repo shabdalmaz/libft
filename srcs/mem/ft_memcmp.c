@@ -14,29 +14,27 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const t_byte	*str1;
-	const t_byte	*str2;
-	size_t			i;
+	size_t	i;
+	size_t	w_size;
+	size_t	words;
 
-	if (n <= 0)
+	i = 0;
+	w_size = sizeof(t_word);
+	words = n / w_size;
+	while (words)
+	{
+		if (*(t_word *)(s1 + i) != *(t_word *)(s2 + i))
+			break ;
+		i += w_size;
+		words -= 1;
+	}
+	while (i < n)
+	{
+		if (*(t_byte *)(s1 + i) != *(t_byte *)(s2 + i))
+			break ;
+		i += 1;
+	}
+	if (i == n)
 		return (0);
-	str1 = (const t_byte *)s1;
-	str2 = (const t_byte *)s2;
-	i = n / sizeof(t_word);
-	while (i--)
-	{
-		if (*(t_word *)str1 != *(t_word *)str2)
-			break ;
-		str1 += sizeof(t_word);
-		str2 += sizeof(t_word);
-	}
-	i = n % sizeof(t_word);
-	while (i--)
-	{
-		if (*str1 != *str2)
-			break ;
-		str1 += 1;
-		str2 += 1;
-	}
-	return (*str1 - *str2);
+	return (*(t_byte *)(s1 + i) - *(t_byte *)(s2 + i));
 }
