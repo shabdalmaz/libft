@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/06 15:47:14 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/09 12:50:21 by ashabdan         ###   ########.fr       */
+/*   Created: 2020/07/06 15:46:26 by ashabdan          #+#    #+#             */
+/*   Updated: 2020/07/06 15:46:27 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_lst_bonus.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstadd_front(t_list **alst, t_list *new_node)
 {
-	t_list	*n_list;
-	t_list	*n_node;
-
-	n_list = NULL;
-	if ((*f) == NULL)
-		return (NULL);
-	while (lst != NULL)
+	if (new_node != NULL)
 	{
-		if ((n_node = ft_lstnew((*f)(lst->content))) != NULL)
-			ft_lstadd_back(&n_list, n_node);
-		else
+		if (alst != NULL)
 		{
-			ft_lstclear(&n_list, del);
-			return (NULL);
+			new_node->next = *alst;
+			*alst = new_node;
 		}
-		lst = lst->next;
+		else
+			alst = &new_node;
 	}
-	return (n_list);
 }

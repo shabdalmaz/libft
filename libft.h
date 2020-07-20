@@ -19,6 +19,7 @@
 # include "includes/ft_conv.h"
 # include "includes/ft_count.h"
 # include "includes/ft_io.h"
-# include "includes/ft_lst.h"
+# include "includes/ft_lst_bonus.h"
+# include "includes/ft_old.h"
 
 #endif

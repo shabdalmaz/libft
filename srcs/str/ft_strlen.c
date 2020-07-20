@@ -22,13 +22,9 @@ size_t	ft_strlen(const char *s)
 
 	len = 0;
 	word_size = sizeof(t_word);
-	while (1)
-	{
-		if (((*(t_word *)(s + len) - FST_BIT) \
-			& ~*(t_word *)(s + len) & LST_BIT))
-			break ;
+	if (!((*(t_word *)(s + len) - FST_BIT) \
+				& ~*(t_word *)(s + len) & LST_BIT))
 		len += word_size;
-	}
 	while (*(s + len))
 		len += 1;
 	return (len);

@@ -34,7 +34,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 			break ;
 		i += 1;
 	}
-	if (i == n)
-		return (0);
-	return (*(t_byte *)(s1 + i) - *(t_byte *)(s2 + i));
+	return (i == n ? 0 : *(t_byte *)(s1 + i) - *(t_byte *)(s2 + i));
 }

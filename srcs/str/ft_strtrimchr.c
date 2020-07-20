@@ -22,7 +22,7 @@ char	*ft_strtrimchr(const char *s, char c)
 	while (*s && *s == c)
 		s += 1;
 	len = ft_strlen(s);
-	while (len && *(s + len + 1) == c)
+	while (len && *(s + len - 1) == c)
 		len -= 1;
 	return (ft_substr(s, 0, len));
 }

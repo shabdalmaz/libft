@@ -14,5 +14,5 @@
 
 int	ft_toupper(int c)
 {
-	return (c & 0x5F);
+	return (ft_islower(c) ? c - 'a' + 'A' : c);
 }

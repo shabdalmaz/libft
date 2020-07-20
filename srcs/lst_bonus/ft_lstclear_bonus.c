@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/06 15:47:21 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 15:47:22 by ashabdan         ###   ########.fr       */
+/*   Created: 2020/07/06 15:46:35 by ashabdan          #+#    #+#             */
+/*   Updated: 2020/07/06 15:46:36 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_lst_bonus.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*node;
+	t_list	*tmp;
 
-	if (!(node = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	tmp = NULL;
+	if (lst != NULL && (*del) != NULL)
+	{
+		while (*lst != NULL)
+		{
+			tmp = (*lst)->next;
+			(*del)((*lst)->content);
+			free(*lst);
+			*lst = tmp;
+		}
+		lst = NULL;
+	}
 }

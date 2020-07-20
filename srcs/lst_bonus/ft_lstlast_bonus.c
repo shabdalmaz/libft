@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/06 15:46:58 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 15:47:00 by ashabdan         ###   ########.fr       */
+/*   Created: 2020/07/06 15:47:05 by ashabdan          #+#    #+#             */
+/*   Updated: 2020/07/06 15:47:06 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_lst_bonus.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst != NULL && (*f) != NULL)
+	if (lst != NULL)
 	{
-		(*f)(lst->content);
-		lst = lst->next;
+		while (lst->next != NULL)
+			lst = lst->next;
 	}
+	return (lst);
 }

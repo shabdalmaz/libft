@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/06 15:47:05 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 15:47:06 by ashabdan         ###   ########.fr       */
+/*   Created: 2020/07/06 15:47:30 by ashabdan          #+#    #+#             */
+/*   Updated: 2020/07/06 15:47:32 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_lst_bonus.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-	if (lst != NULL)
+	int	size;
+
+	size = 0;
+	while (lst != NULL)
 	{
-		while (lst->next != NULL)
-			lst = lst->next;
+		size += 1;
+		lst = lst->next;
 	}
-	return (lst);
+	return (size);
 }

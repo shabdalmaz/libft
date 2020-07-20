@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/06 15:46:26 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 15:46:27 by ashabdan         ###   ########.fr       */
+/*   Created: 2020/07/06 15:46:45 by ashabdan          #+#    #+#             */
+/*   Updated: 2020/07/06 15:46:48 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_lst_bonus.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new_node)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (new_node != NULL)
+	if (lst != NULL && del != NULL)
 	{
-		if (alst != NULL)
-		{
-			new_node->next = *alst;
-			*alst = new_node;
-		}
-		else
-			alst = &new_node;
+		(*del)(lst->content);
+		lst->content = NULL;
 	}
 }

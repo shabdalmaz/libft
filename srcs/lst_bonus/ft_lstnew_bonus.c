@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/06 15:47:30 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 15:47:32 by ashabdan         ###   ########.fr       */
+/*   Created: 2020/07/06 15:47:21 by ashabdan          #+#    #+#             */
+/*   Updated: 2020/07/06 15:47:22 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_lst_bonus.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstnew(void *content)
 {
-	int	size;
+	t_list	*node;
 
-	size = 0;
-	while (lst != NULL)
-	{
-		size += 1;
-		lst = lst->next;
-	}
-	return (size);
+	if (!(node = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

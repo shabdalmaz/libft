@@ -11,14 +11,16 @@
 /* ************************************************************************** */
 
 #include "ft_mem.h"
+#include "ft_str.h"
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*ret;
 
 	ret = NULL;
-	if (!(ret = (char *)ft_calloc(len + 1, sizeof(char))))
+	if (s == NULL || !(ret = (char *)ft_calloc(len + 1, sizeof(char))))
 		return (NULL);
-	ft_memmove(ret, s + start, len);
+	if (ft_strlen(s) > start)
+		ft_memmove(ret, s + start, len);
 	return (ret);
 }

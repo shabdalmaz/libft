@@ -52,9 +52,8 @@ char		**ft_split(const char *s, char c)
 	size_t	w_len;
 	size_t	i;
 
-	if (!s)
+	if (!s || !(trmd = ft_strtrimchr(s, c)))
 		return (NULL);
-	trmd = ft_strtrimchr(s, c);
 	words = ft_cntsubstr(trmd, c);
 	i = 0;
 	w_len = 0;
@@ -68,7 +67,6 @@ char		**ft_split(const char *s, char c)
 		trmd = !w_len ? NULL : ft_spttran(trmd, w_len, c);
 		i += 1;
 	}
-	if (!(ret[i] = ft_strdup("\0")))
-		return (ft_sptclr(ret, i));
+	ret[i] = 0;
 	return (ret);
 }

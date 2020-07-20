@@ -17,39 +17,31 @@ NAME := libft.a
 INC_DIR := ./includes/
 SRC_DIR := ./srcs/
 OBJ_DIR := ./objs/
-SUBDIRS := mem str ctype count conv io
-BONUS_SUBDIR := lst
+SUBDIRS := mem str ctype count conv io lst_bonus
 
 SRC_DIRS := $(addprefix $(SRC_DIR), $(SUBDIRS))
 SRCS := $(wildcard $(addsuffix /*.c, $(SRC_DIRS)))
 
 OBJ_DIRS := $(addprefix $(OBJ_DIR), $(SUBDIRS))
-OBJS := $(patsubst $(SRC_DIR)%, $(OBJ_DIR)%, $(SRCS:.c=.o))
+ALL_OBJS := $(patsubst $(SRC_DIR)%, $(OBJ_DIR)%, $(SRCS:.c=.o))
+MAIN_OBJS := $(patsubst ./objs/lst_bonus%, , $(ALL_OBJS))
 
-BONUS_SRC_PATH := $(addprefix $(SRC_DIR), $(BONUS_SUBDIR))
-BONUS_OBJ_PATH := $(addprefix $(OBJ_DIR), $(BONUS_SUBDIR))
-BONUS_SRCS := $(wildcard $(addsuffix /*.c, $(BONUS_SRC_PATH)))
-BONUS_OBJS := $(patsubst $(SRC_DIR)%, $(OBJ_DIR)%, $(BONUS_SRCS:.c=.o))
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
-
-bonus: $(BONUS_OBJS)
-	@ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
+$(NAME): $(ALL_OBJS)
+	@ar rc $(NAME) $(MAIN_OBJS)
 	@ranlib $(NAME)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIRS)
 	@$(CC) -o $@ -c $< $(CFLAGS) -I $(INC_DIR)
 
-$(BONUS_OBJ_PATH)%.o: $(BONUS_SRC_PATH)%.c
-	@mkdir -p $(BONUS_OBJ_PATH)
-	@$(CC) -o $@ -c $< $(CFLAGS) -I $(INC_DIR)
+bonus:  $(ALL_OBJS)
+	@ar rc $(NAME) $(ALL_OBJS)
+	@ranlib $(NAME)
 
 clean:
 	@rm -rf $(OBJ_DIR)

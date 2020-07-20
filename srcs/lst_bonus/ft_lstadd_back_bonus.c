@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/06 15:46:35 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 15:46:36 by ashabdan         ###   ########.fr       */
+/*   Created: 2020/07/06 15:46:16 by ashabdan          #+#    #+#             */
+/*   Updated: 2020/07/06 15:46:18 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_lst.h"
+#include "ft_lst_bonus.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstadd_back(t_list **alst, t_list *new_node)
 {
-	t_list	*tmp;
-
-	tmp = NULL;
-	if (lst != NULL && (*del) != NULL)
+	if (new_node != NULL)
 	{
-		while (*lst != NULL)
-		{
-			tmp = (*lst)->next;
-			(*del)((*lst)->content);
-			free(*lst);
-			*lst = tmp;
-		}
-		lst = NULL;
+		if (alst == NULL)
+			alst = &new_node;
+		else if (*alst == NULL)
+			*alst = new_node;
+		else
+			ft_lstlast(*alst)->next = new_node;
 	}
 }
