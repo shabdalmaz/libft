@@ -6,7 +6,7 @@
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 15:39:33 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 15:39:39 by ashabdan         ###   ########.fr       */
+/*   Updated: 2020/07/20 18:44:55 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@
 # include "includes/ft_count.h"
 # include "includes/ft_io.h"
 # include "includes/ft_lst_bonus.h"
-# include "includes/ft_old.h"
 
 #endif
