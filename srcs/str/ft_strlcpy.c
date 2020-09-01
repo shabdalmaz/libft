@@ -6,33 +6,29 @@
 /*   By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 15:50:43 by ashabdan          #+#    #+#             */
-/*   Updated: 2020/07/06 15:50:44 by ashabdan         ###   ########.fr       */
+/*   Updated: 2020/08/31 22:22:25 by ashabdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_str.h"
+#include "ft_mem.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dst_size)
 {
-	const char	*src0;
+	size_t	src_len;
 
-	if (!dst || !src)
+	if (dst == NULL || src == NULL)
 		return (0);
-	src0 = src;
-	while (dst_size)
+	src_len = ft_strlen(src);
+	if (dst_size != 0)
 	{
-		if (*src && dst_size > 1)
-		{
-			*dst = *src;
-			dst += 1;
-			src += 1;
-		}
+		if (src_len < dst_size)
+			ft_memmove(dst, src, src_len + 1);
 		else
 		{
-			*dst = 0;
-			break ;
+			ft_memmove(dst, src, dst_size - 1);
+			*(dst + dst_size - 1) = '\0';
 		}
-		dst_size -= 1;
 	}
-	return ((src - src0) + ft_strlen(src));
+	return (src_len);
 }
