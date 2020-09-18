@@ -6,7 +6,7 @@
 #    By: ashabdan <ashabdan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/06 15:39:20 by ashabdan          #+#    #+#              #
-#    Updated: 2020/07/09 13:41:40 by ashabdan         ###   ########.fr        #
+#    Updated: 2020/09/17 19:03:45 by ashabdan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,31 +17,39 @@ NAME := libft.a
 INC_DIR := ./includes/
 SRC_DIR := ./srcs/
 OBJ_DIR := ./objs/
-SUBDIRS := mem str ctype count conv io lst_bonus
+SUBDIRS := mem str ctype count conv io
+BONUS_SUBDIR := lst_bonus
 
 SRC_DIRS := $(addprefix $(SRC_DIR), $(SUBDIRS))
 SRCS := $(wildcard $(addsuffix /*.c, $(SRC_DIRS)))
 
 OBJ_DIRS := $(addprefix $(OBJ_DIR), $(SUBDIRS))
-ALL_OBJS := $(patsubst $(SRC_DIR)%, $(OBJ_DIR)%, $(SRCS:.c=.o))
-MAIN_OBJS := $(patsubst ./objs/lst_bonus%, , $(ALL_OBJS))
+OBJS := $(patsubst $(SRC_DIR)%, $(OBJ_DIR)%, $(SRCS:.c=.o))
 
+BONUS_SRC_PATH := $(addprefix $(SRC_DIR), $(BONUS_SUBDIR))
+BONUS_OBJ_PATH := $(addprefix $(OBJ_DIR), $(BONUS_SUBDIR))
+BONUS_SRCS := $(wildcard $(addsuffix /*.c, $(BONUS_SRC_PATH)))
+BONUS_OBJS := $(patsubst $(SRC_DIR)%, $(OBJ_DIR)%, $(BONUS_SRCS:.c=.o))
 
-.PHONY: all clean fclean re bonus
+.PHONY: all bonus clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(ALL_OBJS)
-	@ar rc $(NAME) $(MAIN_OBJS)
+$(NAME): $(OBJS)
+	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
+
+bonus: $(BONUS_OBJS)
+	@ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
+	@ranlib $(NAME)
+
+$(BONUS_OBJ_PATH)%.o: $(BONUS_SRC_PATH)%.c
+	@mkdir -p $(BONUS_OBJ_PATH)
+	@$(CC) -o $@ -c $< $(CFLAGS) -I $(INC_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIRS)
 	@$(CC) -o $@ -c $< $(CFLAGS) -I $(INC_DIR)
-
-bonus:  $(ALL_OBJS)
-	@ar rc $(NAME) $(ALL_OBJS)
-	@ranlib $(NAME)
 
 clean:
 	@rm -rf $(OBJ_DIR)
